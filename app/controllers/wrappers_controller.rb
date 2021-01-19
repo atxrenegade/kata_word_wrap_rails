@@ -4,10 +4,17 @@ class WrappersController < ApplicationController
   end 
   
   def create 
-    @wrapped_word = Wrapper.wrap(params[:col_num].to_i, params[:user_str])
+    col_num = wrappers_params[0].to_i
+    user_str = wrappers_params[1]
+    @wrapped_word = Wrapper.wrap(col_num, user_str)
     render :show
   end 
   
   def show
+  end 
+
+  private
+  def wrappers_params
+    params.require([:col_num, :user_str])
   end 
 end
