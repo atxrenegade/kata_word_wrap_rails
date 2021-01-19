@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  resources :wrappers
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/', to: 'wrappers#new'
+  resource :wrappers, only: [:show, :new, :create]
 end
