@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ /* bootstrap */
+@import 'bootstrap';
+
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Euphoria+Script&display=swap');
+
+body {
+	/* background image */
+  background: url('https://designpickle-resources.s3.us-east-2.amazonaws.com/2020/Zoom+Backgrounds/April/20_DesignPickle_Zoom_Background-1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+h1 {
+  font-size: 6em;
+	color: #fffff0;
+	margin-bottom: 30px;
+  font-family: 'Euphoria Script', cursive;
+}
