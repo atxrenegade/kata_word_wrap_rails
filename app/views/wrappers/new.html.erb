@@ -1,0 +1,7 @@
+<%= form_tag("/wrappers", method: "post") do %>
+  <%= label_tag(:col_num, "Enter max desired column width: ") %><br/>
+  <%= text_field_tag(:col_num) %><br/>
+  <%= label_tag(:user_str, "Enter String to Wrap: ") %><br/>
+  <%= text_field_tag(:user_str) %><br/>
+  <%= submit_tag("Wrap String") %>
+<% end %>  
