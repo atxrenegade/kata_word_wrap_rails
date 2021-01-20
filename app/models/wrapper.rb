@@ -7,13 +7,13 @@ class Wrapper
         word_arr.each do |word|
             if (col_idx > col_num || (col_idx + word.length) > col_num)
                 test_char = new_str.slice(-1)
-                if (test_char != "\n") then new_str.concat("\n") end
+                if (test_char != "<br>") then new_str.concat("<br>") end
                 col_idx = 0
             end
 
             if (word.length > col_num)
                 while (word.length > col_num) do
-                    new_str = new_str + "#{word[0...col_num - 1]}-\n"
+                    new_str = new_str + "#{word[0...col_num - 1]}-<br>"
                     col_index = word[0...col_num - 1].length
                     word = word.slice(col_num -1, word.length) 
                 end  
@@ -24,6 +24,6 @@ class Wrapper
                 col_idx += word.length + 1
             end  
         end  
-        puts(new_str)
+        return(new_str)
     end
 end   
