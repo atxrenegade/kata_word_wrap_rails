@@ -1,1 +1,1 @@
-<%= @wrapped_word.html_safe %>
+<h4><%= sanitize @wrapped_word, tags: %w(br) %></h4>
