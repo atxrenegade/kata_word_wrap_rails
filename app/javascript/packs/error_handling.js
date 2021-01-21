@@ -1,4 +1,4 @@
-//TO DO confirm input for col_num is a positive otherwise add error msg
+// client side user input validations
 
 const colInput = document.getElementById('col_num').innerText;
 const userStr = document.getElementById('user_str').innerText;
@@ -7,6 +7,9 @@ const errDiv = document.getElementById('errors');
 colInput.addEventListener('change', checkNum);
 userStr.addEventListener('change', checkStr);
 
+// check user input for positive int
+// if not present create and append error element
+// remove error element if num is valid
 function checkNum(){
   if (isPositiveInteger(parseInt(colInput, 10)) != true) {
     var intErr = createElement('p')
@@ -15,6 +18,9 @@ function checkNum(){
   } 
 }
 
+// check user input for user input string of min 10 chars
+// in not present create and append error element
+// remove error element is string is valid
 function checkStr(){
   if (userStr.length < 10){
     document.getElementById('errors');
@@ -24,10 +30,10 @@ function checkStr(){
   }
 }
 
+// use regex to test for positive integer
 function isPositiveInteger(s) {
   return /^\+?[1-9][\d]*$/.test(s);
 }
 
-// TO DO add event listener to clear error messages
 
 
