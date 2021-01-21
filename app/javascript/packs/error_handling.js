@@ -63,3 +63,4 @@ function validateInput() {
 function isPositiveInteger(s) {
   return /^\+?[1-9][\d]*$/.test(s);
 }
+
