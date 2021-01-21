@@ -1,40 +1,61 @@
 // client side user input validations
+console.log("loaded");
 
-const colInput = document.getElementById('col_num').value;
-const userStr = document.getElementById('user_str').value;
+const colInput = document.getElementById('col_num');
+const userStr = document.getElementById('user_str');
 const errDiv = document.getElementById('errors');
+const submitBtn = document.getElementById('submit-button');
 
-colInput.addEventListener('change', checkNum);
-userStr.addEventListener('change', checkStr);
+colInput.addEventListener('keypress', checkNum);
+userStr.addEventListener('keypress', checkStr);
+submitBtn.addEventListener('click', validateInput);
 
 // check user input for positive int
 // if not present create and append error element
 // remove error element if num is valid
-function checkNum(){
-  if (isPositiveInteger(parseInt(colInput, 10)) != true) {
-    var intErr = createElement('p')
-    intErr.innerText = "Number value must be a positive integer"
-    errDiv.appendChild(intErr);
-  } else {
-    if (intErr != false) {
-      intErr.remove();
+function checkNum() {
+  var errEl = document.getElementById('intErr');
+  if ((isPositiveInteger(parseInt(colInput.value, 10)) != true) && errEl == undefined) {
+    addErrMsg('intErr', 'Number value must be a positive integer');
+  } else if ((isPositiveInteger(parseInt(colInput.value, 10)) == true)){
+    // console.log("Trigger 1")
+    if (errEl != undefined) {
+      errEl.remove();
     } 
-  }
+  } else {
+    return;
+  }  
 }
 
 // check user input for user input string of min 10 chars
 // in not present create and append error element
 // remove error element is string is valid
 function checkStr(){
-  if (userStr.length < 10){
-    document.getElementById('errors');
-    var strErr = createElement('p')
-    strErr.innerText = "String must be a minimum of 10 characters"
-    errDiv.appendChild(strErr);
-  } else {
-    if (strErr != false) {
-      strErr.remove();
+  var errEl = document.getElementById('strErr');
+  if (userStr.value.length < 10){
+    if (errEl == undefined) {
+      addErrMsg('strErr', 'String must be a minimum of 10 characters')
     }
+  } else {
+    if (errEl != undefined) {
+      errEl.remove();
+    }
+  }
+}
+
+function addErrMsg(id, msg){
+  var errEl = document.createElement('p');
+  errEl.innerText = msg;
+  errEl.id = id;
+  errDiv.appendChild(errEl);
+}
+
+function validateInput() {
+  if ((isPositiveInteger(parseInt(colInput.value, 10)) != true && userStr.value.length < 10)) {
+    console.log("Validation passed")
+    //render show page;
+  } else {
+    return;
   }
 }
 
@@ -42,6 +63,3 @@ function checkStr(){
 function isPositiveInteger(s) {
   return /^\+?[1-9][\d]*$/.test(s);
 }
-
-
-
