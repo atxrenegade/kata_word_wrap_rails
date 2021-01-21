@@ -24,6 +24,9 @@ ruby '2.6.3'
 * listen   
 * spring   
 * pry  
+* bootstrap
+* popper
+* jQuery
 
 ## Configuration, Database creation, Database initialization    
 There is no database for this application, data in not persisted.    
