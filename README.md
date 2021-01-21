@@ -1,25 +1,40 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple application to demonstrate implementation of
+a Word Wrap Kata algorithm.
 
-Things you may want to cover:
+Word wrap takes two user input values, a positive integer to specify  
+maximum column width and string to wrap to colum width.  
 
-* Ruby version
+#### TO DO - Client side input validation error handling module is not loading correctly as of yet.  
 
-* System dependencies
+## Ruby version 
+ruby '2.6.3'  
 
-* Configuration
+## System dependencies  
+* rails    
+* puma     
+* sass-rails    
+* webpacker       
+* turbolinks   
+* jbuilder   
+* bootsnap   
+* byebug   
+* web-console   
+* listen   
+* spring   
+* pry  
 
-* Database creation
+## Configuration, Database creation, Database initialization    
+There is no database for this application, data in not persisted.    
+Database creation and initialization is not required.    
 
-* Database initialization
+## Deployment instructions  
+Download repo  
+Navigate to directory  
+Run 'bundle install'  
+Start server 'rails s'  
+Open browser window to 'localhost:3000'  
+Enter the requested user input and click wrap word button    
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# kata_word_wrap_rails
+# word_wrap_kata_rails
