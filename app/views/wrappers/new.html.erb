@@ -1,9 +1,9 @@
 <%= form_tag("/wrappers", method: "post") do %>
-  <%= label_tag(:col_num, "Enter max desired column width: ") %><br/>
-  <%= text_field_tag(:col_num, "", class: "form-control") %><br/>
+  <%= label_tag(:col_num, "Enter max desired column width: (positive integers only)") %><br/>
+  <%= text_field_tag(:col_num, nil, class: "form-control", required: true, pattern: "^[1-9][0-9]*$")  %><br/>
   <%= label_tag(:user_str, "Enter string to wrap: ") %><br/>
-  <%= text_area_tag(:user_str, "", class: "form-control") %><br/>
-  <%= submit_tag("Wrap String", class: "btn btn-outline-success btn-lg")%>
+  <%= text_area_tag(:user_str, nil, class: "form-control", required: true, minlength: 10)  %><br/>
+  <%= submit_tag("Wrap String", id: "submit-button", class: "btn btn-outline-success btn-lg")%>
 <% end %>  
 
 <div id='errors'>
