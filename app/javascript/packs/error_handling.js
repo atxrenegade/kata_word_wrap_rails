@@ -1,7 +1,7 @@
 // client side user input validations
 
-const colInput = document.getElementById('col_num').innerText;
-const userStr = document.getElementById('user_str').innerText;
+const colInput = document.getElementById('col_num').value;
+const userStr = document.getElementById('user_str').value;
 const errDiv = document.getElementById('errors');
 
 colInput.addEventListener('change', checkNum);
@@ -15,7 +15,11 @@ function checkNum(){
     var intErr = createElement('p')
     intErr.innerText = "Number value must be a positive integer"
     errDiv.appendChild(intErr);
-  } 
+  } else {
+    if (intErr != false) {
+      intErr.remove();
+    } 
+  }
 }
 
 // check user input for user input string of min 10 chars
@@ -27,6 +31,10 @@ function checkStr(){
     var strErr = createElement('p')
     strErr.innerText = "String must be a minimum of 10 characters"
     errDiv.appendChild(strErr);
+  } else {
+    if (strErr != false) {
+      strErr.remove();
+    }
   }
 }
 
